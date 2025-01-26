@@ -14,7 +14,7 @@ const mockImages = mockUrls.map((url, index) => ({
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <main className="bg-gradient-to-b from-[#2e026d] to-[#15162c]">
       <div className="flex flex-wrap gap-4">
         {mockImages.map((image) => (
           <div key={image.id} className="w-48">
