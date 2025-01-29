@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    /*background-image: linear-gradient(to bottom, #2e026d, #15162c);*/
+    background-color: black;
+}

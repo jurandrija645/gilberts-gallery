@@ -23,9 +23,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body
-        className={`flex flex-col gap-4 bg-gradient-to-b from-[#2e026d] to-[#15162c] font-sans text-white`}
-      >
+      <body className={`flex flex-col gap-4 font-sans text-white`}>
         <TopNav />
         {children}
       </body>
