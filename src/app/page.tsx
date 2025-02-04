@@ -19,6 +19,7 @@ export default async function HomePage() {
   console.log(posts);
 
   return (
+    // TODO: Add a search bar
     <main>
       <div className="flex flex-wrap gap-4">
         {posts.map((post) => (
