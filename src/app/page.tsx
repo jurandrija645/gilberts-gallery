@@ -32,6 +32,7 @@ export default async function HomePage() {
             <img src={image.url} alt="image" />
           </div>
         ))}
+        <h1>Hello, testing deployment status</h1>
       </div>
     </main>
   );
