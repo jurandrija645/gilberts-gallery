@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { db } from "../server/db/index";
+import { Images } from "./_components/images";
 
 export const dynamic = "force-dynamic";
 
@@ -20,20 +21,14 @@ export default async function HomePage() {
     orderBy: (model, { desc }) => desc(model.id),
   });
 
-  console.log(images);
-
   return (
-    // TODO: Add a search bar
     <main>
-      <div className="flex flex-wrap gap-4">
-        {[...images, ...images, ...images, ...images].map((image, index) => (
-          <div key={`${image.id}-${index}`} className="felx w-48 flex-col">
-            <img src={image.url} alt="image" />
-            <div>{image.name}</div>
-          </div>
-        ))}
-        <h1>Hello, testing deployment status</h1>
-      </div>
+      <SignedOut>
+        <div className="h-full w-full text-center text-2xl">Please sign in</div>
+      </SignedOut>
+      <SignedIn>
+        <Images images={images} />
+      </SignedIn>
     </main>
   );
 }
