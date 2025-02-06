@@ -22,10 +22,14 @@ export default function RootLayout({
     <ClerkProvider>
       <NextSSRPlugin
         /**
-         * The `extractRouterConfig` will extract **only** the route configs
-         * from the router to prevent additional information from being
-         * leaked to the client. The data passed to the client is the same
-         * as if you were to fetch `/api/uploadthing` directly.
+         * Simple explanation of what NextSSRPlugin does:
+         * Think of this like a security guard that only lets certain people into a party.
+         *
+         * When someone wants to upload a file, their browser needs to know what kinds of
+         * files are allowed (like images only) and how big they can be (like 4MB max).
+         *
+         * But we don't want to share ALL the secret party details (like where we store the files).
+         * So this code only shares the basic rules, keeping the important stuff private!
          */
         routerConfig={extractRouterConfig(ourFileRouter)}
       />
