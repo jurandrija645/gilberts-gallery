@@ -10,7 +10,7 @@ export async function getImages() {
   return images;
 }
 
-export async function getImagesByUserId(userId: string) {
+export async function getImagesByUserId() {
   const user = await auth();
 
   if (!user.userId) throw new Error("Unauthorized");
