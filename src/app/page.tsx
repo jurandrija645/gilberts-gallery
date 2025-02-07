@@ -1,5 +1,5 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { db } from "../server/db/index";
+import { getImages, getImagesByUserId } from "../server/queries";
 import { Images } from "./_components/images";
 
 export const dynamic = "force-dynamic";
@@ -17,9 +17,7 @@ const mockImages = mockUrls.map((url, index) => ({
 }));
 
 export default async function HomePage() {
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id),
-  });
+  const images = await getImagesByUserId();
 
   return (
     <main>
