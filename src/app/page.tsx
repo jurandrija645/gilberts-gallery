@@ -21,12 +21,14 @@ export default async function HomePage() {
 
   return (
     <main>
-      <SignedOut>
-        <div className="h-full w-full text-center text-2xl">Please sign in</div>
-      </SignedOut>
-      <SignedIn>
-        <Images images={images} />
-      </SignedIn>
+      <div className="mx-auto flex w-[80%] flex-col items-center justify-center rounded-lg bg-gray-900 p-8">
+        <SignedOut>
+          <p className="h-full w-full text-center text-2xl">Please sign in</p>
+        </SignedOut>
+        <SignedIn>
+          <Images images={images} />
+        </SignedIn>
+      </div>
     </main>
   );
 }
