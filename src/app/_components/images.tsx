@@ -23,7 +23,6 @@ export function Images({ images }: ImagesProps) {
           <div>{image.name}</div>
         </div>
       ))}
-      <h1>Hello, testing deployment status</h1>
     </div>
   );
 }
