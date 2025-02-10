@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 import "@uploadthing/react/styles.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
-import { GeistSans } from "geist/font/sans";
+import { GeistSans } from "geist/font";
 import { type Metadata } from "next";
 import TopNav from "./_components/topnav";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
@@ -15,9 +15,12 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+  modal: React.ReactNode; // This is important for parallel routes
+}
+
+export default function RootLayout({ children, modal }: RootLayoutProps) {
   return (
     <ClerkProvider>
       <NextSSRPlugin
@@ -37,6 +40,9 @@ export default function RootLayout({
         <body className={`flex flex-col gap-4 font-sans text-white`}>
           <TopNav />
           {children}
+
+          {modal}
+          <div id="modal-root" />
         </body>
       </html>
     </ClerkProvider>
