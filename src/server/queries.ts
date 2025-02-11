@@ -12,11 +12,12 @@ export async function getImages() {
 
 export async function getImagesByUserId() {
   const user = await auth();
-
-  if (!user.userId) throw new Error("Unauthorized");
+  if (!user) {
+    return [];
+  }
 
   const images = await db.query.images.findMany({
-    where: (model, { eq }) => eq(model.userId, user.userId),
+    where: (model, { eq }) => eq(model.userId, user.userId!),
   });
   return images;
 }
