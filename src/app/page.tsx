@@ -1,6 +1,7 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { getImages, getImagesByUserId } from "../server/queries";
 import { Images } from "./_components/images";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -15,9 +16,11 @@ export default async function HomePage() {
         </SignedOut>
         <SignedIn>
           <Images images={images} />
-          <button className="mb-4 mt-10 rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-blue-600">
-            Upload Image
-          </button>
+          <Link href="/photos/1">
+            <button className="mb-4 mt-10 rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-blue-600">
+              Upload Image
+            </button>
+          </Link>
         </SignedIn>
       </div>
     </main>
