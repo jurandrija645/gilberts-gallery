@@ -8,6 +8,8 @@ import TopNav from "./_components/topnav";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
+import { type PropsWithChildren } from "react";
+import { Footer } from "./_components/Footer";
 
 export const metadata: Metadata = {
   title: "Gilberts Gallery",
@@ -15,9 +17,8 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-  modal: React.ReactNode; // This is important for parallel routes
+interface RootLayoutProps extends PropsWithChildren {
+  modal: React.ReactNode;
 }
 
 export default function RootLayout({ children, modal }: RootLayoutProps) {
@@ -37,12 +38,13 @@ export default function RootLayout({ children, modal }: RootLayoutProps) {
         routerConfig={extractRouterConfig(ourFileRouter)}
       />
       <html lang="en" className={`${GeistSans.variable}`}>
-        <body className={`flex flex-col gap-4 font-sans text-white`}>
+        <body className={`flex min-h-screen flex-col font-sans text-white`}>
           <TopNav />
-          {children}
+          <main className="flex-1">{children}</main>
 
           {modal}
           <div id="modal-root" />
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
