@@ -17,7 +17,6 @@ export default function TopNav() {
           <UploadButton
             endpoint="imageUploader"
             onClientUploadComplete={() => {
-              alert("Upload complete");
               router.refresh();
             }}
           />
