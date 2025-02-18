@@ -18,7 +18,7 @@ export default async function HomePage() {
           <Images images={images} />
           <Link href="/photos/1">
             <button className="mb-4 mt-10 rounded-lg bg-blue-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-blue-600">
-              Upload Image
+              Upload Photo
             </button>
           </Link>
         </SignedIn>
