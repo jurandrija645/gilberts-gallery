@@ -12,7 +12,7 @@ export default async function HomePage() {
     <main>
       <div className="mx-auto flex w-[80%] flex-col items-center justify-center gap-8 rounded-lg bg-gray-900 p-8">
         <SignedOut>
-          <p className="h-full w-full text-center text-2xl">Please Log in</p>
+          <p className="h-full w-full text-center text-2xl">Please Sign in</p>
         </SignedOut>
         <SignedIn>
           <Images images={images} />
