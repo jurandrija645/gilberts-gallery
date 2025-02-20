@@ -20,7 +20,9 @@ export function Images({ images }: ImagesProps) {
               alt={image.name}
             />
           </Link>
-          <div>{image.name}</div>
+          <div className="mt-2 truncate text-sm text-gray-200">
+            {image.name}
+          </div>
         </div>
       ))}
     </div>
