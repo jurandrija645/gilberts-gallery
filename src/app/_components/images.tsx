@@ -21,7 +21,7 @@ export function Images({ images }: ImagesProps) {
             />
           </Link>
           <div className="mt-2 truncate text-sm text-gray-200">
-            {image.name}
+            {image.name} - {image.createdAt.toLocaleDateString()}
           </div>
         </div>
       ))}
